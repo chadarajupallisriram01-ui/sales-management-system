@@ -30,6 +30,11 @@ if "Back_stack" not in st.session_state:
 if "Forward_stack" not in st.session_state:
     st.session_state.Forward_stack = []
 
+
+if "User_name" not in st.session_state:
+    st.session_state.User_name = ""
+
+
 from Auth.Registration_form import Reg
 from Auth.Login import Login
 from Modules.sales import sales
