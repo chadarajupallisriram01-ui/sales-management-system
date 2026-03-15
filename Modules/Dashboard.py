@@ -90,7 +90,6 @@ def emp_act():
     df = pd.DataFrame(f2)
     st.write(df.T)
     mobile = st.text_input("Enter Mobile number : ",key ="mob11")
-    st.write("Afetr Entered mobile number press ENTER in Keyboard)
     cur.execute("select * from Sales where Mobile= ?",(mobile,))
     f=cur.fetchall()
     if f:
