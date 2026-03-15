@@ -37,6 +37,9 @@ def Login():
                     if  a == data[0]:
                         if role == "Employee":
                             st.success("Login Successful..")
+                            st.session_state.page = "sales"
+                            st.session_state.User_name = "Sales-boy"
+                            st.session_state.role = "Employee"
                         else:
                             st.warning("Select role as Employee")
                     else:
@@ -44,11 +47,7 @@ def Login():
                 else:
                     # st.warning("Mobile number not found")
                     st.session_state.Logged_in = True
-                 if role == "Employee" and (a==data[0] if data else False):
-                    st.session_state.page = "sales"
-                    st.session_state.User_name = "Sales-boy"
-                    st.session_state.role = "Employee"
-                elif role == "Admin" and mobile=="8465024633" and Password=="$riRam1234":
+                if role == "Admin" and mobile=="8465024633" and Password=="$riRam1234":
                     st.session_state.page = "dashboard"
                     st.session_state.User_name = "Prameela"
                     st.session_state.role = "Admin"
