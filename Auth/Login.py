@@ -13,7 +13,7 @@ if "emp" not in st.session_state:
     st.session_state.emp = None
 
 if "User_name" not in st.session_state:
-    st.session_state.User_name = False
+    st.session_state.User_name = "Guest"
 
 def Login():
     st.title("Login")
