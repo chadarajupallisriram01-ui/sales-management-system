@@ -47,7 +47,7 @@ if st.session_state.page == "home":
     st.markdown("""<h4 style="color:orange">Hello, I am Developer of this application, My name is Sriram. I want to Share few words with you about this Application</h4>
                 <b style="font-size : 20px"><u>Point-1 :</u></b> If you are stucked in this app just click on <b>Logout Button</b>, I Bring you back to <b>Home Page</b> <br>
                 <b style="font-size : 20px"><u>Point-2 :</u></b> It is System Style Application that means Registration and Loing buttons works on <b>Double Click</b><br>
-                <b style="font-size : 20px"><u>Point-3 :</u></b> Remaining buttons are Working as <b>One click for Validation</b> and <b>Another click is for Navigation</b><br>
+                <b style="font-size : 20px"><u>Point-3 :</u></b> Remaining buttons are Working as <b>One click for Validation</b> and <b>Another click is to create Magic</b><br>
                 <b style="font-size : 20px"><u>Point-4 :</u></b> System Designed Navigations <b>Employee ->Login->Sales</b> are <b>Admin ->Login->Dashboard & View</b><br><p>If you got any error ignore it and move forward</p>
                 <b style="font-size : 20px">Point -5 :</b> If Mobile Number not found Re-enter the Number<br><b style="font-size : 20px;align-item:center;">Thankyou for Visiting , Visit again you are always welcome</b><hr>
                 """,unsafe_allow_html=True)
