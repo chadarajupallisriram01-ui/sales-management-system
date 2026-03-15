@@ -11,7 +11,10 @@ st.set_page_config(layout="wide")
 
 if "emp" not in st.session_state:
     st.session_state.emp = None
-    
+
+if "User_name" not in st.session_state:
+    st.session_state.User_name = None
+
 def Login():
     st.title("Login")
     with st.form("Login"):
@@ -37,20 +40,21 @@ def Login():
                     if  a == data[0]:
                         if role == "Employee":
                             st.success("Login Successful..")
-                            st.session_state.page = "sales"
-                            st.session_state.User_name = "Sales-boy"
-                            st.session_state.role = "Employee"
                         else:
                             st.warning("Select role as Employee")
                     else:
                         st.error("Wrong Password..")
                 else:
-                    # st.warning("Mobile number not found")
-                    st.session_state.Logged_in = True
+                    st.warning("Mobile number not found")
+                st.session_state.Logged_in = True
                 if role == "Admin" and mobile=="8465024633" and Password=="$riRam1234":
                     st.session_state.page = "dashboard"
                     st.session_state.User_name = "Prameela"
                     st.session_state.role = "Admin"
+                elif role == "Employee" and (a==data[0] if data else False):
+                    st.session_state.page = "sales"
+                    st.session_state.User_name = "Sales-boy"
+                    st.session_state.role = "Employee"
                 elif role == "Developer" and mobile == "7382945321" and Password == "$riRam098":
                     st.session_state.page = "developer"
                     st.session_state.User_name = "Sriram"
