@@ -174,6 +174,7 @@ with st.sidebar:
         st.rerun()
 
 if st.session_state.page == "Developer":
+    st.markdown("""<p style="background-color:white;color:black">Click on Developer-Panel Button on side-panel""",unsafe_allow_html=True)
     st.title("🙏 Welcome to Developer Page 🙏")
     st.subheader("Click on Developer Options/Panel Button in the left sidebar")
 
