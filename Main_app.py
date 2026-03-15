@@ -42,7 +42,6 @@ from Roles.Flexible_data import delete,delete1
 if st.session_state.page == "home":
 
     st.title("Welcome to Sales Management System")
-    st.balloons()
 
     st.markdown("""<h4 style="color:orange">Hello, I am Developer of this application, My name is Sriram. I want to Share few words with you about this Application</h4>
                 <b style="font-size : 20px"><u>Point-1 :</u></b> If you are stucked in this app just click on <b>Logout Button</b>, I Bring you back to <b>Home Page</b> <br>
