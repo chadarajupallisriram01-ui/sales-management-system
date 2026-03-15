@@ -44,14 +44,14 @@ def Login():
                 else:
                     # st.warning("Mobile number not found")
                     st.session_state.Logged_in = True
-                if role == "Admin" and mobile=="8465024633" and Password=="$riRam1234":
-                    st.session_state.page = "dashboard"
-                    st.session_state.User_name = "Prameela"
-                    st.session_state.role = "Admin"
-                elif role == "Employee" and (a==data[0] if data else False):
+                 if role == "Employee" and (a==data[0] if data else False):
                     st.session_state.page = "sales"
                     st.session_state.User_name = "Sales-boy"
                     st.session_state.role = "Employee"
+                elif role == "Admin" and mobile=="8465024633" and Password=="$riRam1234":
+                    st.session_state.page = "dashboard"
+                    st.session_state.User_name = "Prameela"
+                    st.session_state.role = "Admin"
                 elif role == "Developer" and mobile == "7382945321" and Password == "$riRam098":
                     st.session_state.page = "developer"
                     st.session_state.User_name = "Sriram"
