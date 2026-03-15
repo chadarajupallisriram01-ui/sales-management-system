@@ -13,7 +13,7 @@ import streamlit.components.v1 as components
 
 def Dashboard():
     st.title("Dashboard")
-    st.markdown("""<p style="background-color:white;color:black">Click on Developer-Panel Button on side-panel""",unsafe_allow_html=True)
+    st.markdown("""<p style="color:yellow">Click on Radio Buttons on side-panel""",unsafe_allow_html=True)
     conn = get_connection()
     cur = conn.cursor()
     emp_count = cur.execute("select count(*) from Employee").fetchone()[0]
