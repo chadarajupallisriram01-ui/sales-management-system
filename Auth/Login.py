@@ -26,8 +26,6 @@ def Login():
         st.session_state.emp = mobile
         if mobile.strip()=="" or Password.strip()=="":
             st.toast("❌ No Spaces Allowed Fill the Details")
-        elif((mobile == "8465024633" and role == "Admin") or (mobile == "7382945321 and role == "Developer")):
-            st.success("Click the button Once again")
         elif Password:
             if login(mobile,Password) != "You are Logged_in Successfully..":
                 st.warning(login(mobile,Password))
@@ -46,6 +44,8 @@ def Login():
                             st.warning("Select role as Employee")
                     else:
                         st.error("Wrong Password..")
+                elif((mobile == "8465024633" and role == "Admin") or (mobile == "7382945321 and role == "Developer")):
+                    st.success("Click the button Once again")
                 else:
                     st.warning("User not found")
                 st.session_state.Logged_in = True
