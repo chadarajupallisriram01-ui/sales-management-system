@@ -171,7 +171,7 @@ with st.sidebar:
 
     st.markdown("---")
 
-    if st.button("Logout"):
+    if st.button("Logout\Home"):
         st.session_state.Logged_in = False
         st.session_state.page = "home"
         st.session_state.role = None
