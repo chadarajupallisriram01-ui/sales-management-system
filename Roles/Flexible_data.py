@@ -11,7 +11,6 @@ from faker import Faker
 import string as s
 import hashlib as h
 phone = []
-role = "Employee"
 def Employee(n):
     n1 = int(n)
     fake = Faker("en-IN")
@@ -37,16 +36,15 @@ def Employee(n):
         random_date = start_date + timedelta(days = random_days) 
 
         now = random_date.date()
+
+        role = "Employee"
         conn = get_connection()
         cur = conn.cursor()
 
         cur.execute("""Insert or Ignore into Employee(
-                    Mobile,Name,Password,Created_at)values(?,?,?,?)
-                    """,(ph,name,hpwd,now))
+                    Mobile,Name,Password,Role,Created_at)values(?,?,?,?,?)
+                    """,(ph,name,hpwd,role,now))
 
-        cur.execute("""Insert or Ignore into Employee_Duplicate(
-                    Mobile,Name,Password,Created_at
-                    )values(?,?,?,?)""",(ph,name,pwd,role,now))
         conn.commit()
         conn.close()
     st.success("Data inserted Successfully..")
