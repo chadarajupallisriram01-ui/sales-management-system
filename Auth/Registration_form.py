@@ -24,8 +24,6 @@ def Reg():
             st.toast("❌ No Spaces Allowed and No symbols and Numbers are allowed")
         elif Password != confirm:
             st.error("❌ Password Not matched to Confirm Password")
-        elif not Role in ["Admin","Employee","Developer"]:
-            st.warning("Please, Select Role")
         else:
             if Register(name,mobile,Password,Role,now) == "You are Registered Successfully..":
                 st.success(Register(name,mobile,Password,Role,now))
