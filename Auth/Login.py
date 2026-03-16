@@ -20,7 +20,6 @@ def Login():
     with st.form("Login"):
         mobile = st.text_input("Enter your Registered Mobile Number :",max_chars=10,key = "Mobile")
         Password = st.text_input("Enter your Registered Password :",type = "password")
-        role = st.selectbox("Role",["--Select--","Admin","Employee","Developer"])
         submit = st.form_submit_button("Login")
     if submit:
         st.session_state.emp = mobile
@@ -35,21 +34,27 @@ def Login():
                 conn = get_connection()
                 cur = conn.cursor()
 
+                cur.execute("Select Role from Employee where Mobile = ?",(mobile,))
+                role = cur.fetchone()
+
+                cur.execute("Select Mobile,Password from Employee where Role = 'Admin'")
+                Ad_role = cur.fetchone()
+                
                 cur.execute("select Password from Employee where Mobile = ?",(mobile,))
                 data = cur.fetchone()
                 if data:
                     if  a == data[0]:
-                        if role == "Employee":
-                            st.success("Login Successful..")
+                        if role is True:
+                            st.success("Login Successful.. , Click the login button again")
                         else:
                             st.warning("Select role as Employee")
                     else:
-                        st.error("Wrong Password..")
+                        st.error("Wrong Password.. or Role..")
                 else:
                     st.warning("User not found")
                     st.toast("Check the given Credentials")
                 st.session_state.Logged_in = True
-                if role == "Admin" and mobile=="8465024633" and Password=="$riRam1234":
+                if role == "Admin" and Ad_role[0] and ":
                     st.success("Click the button once again")
                     st.session_state.page = "dashboard"
                     st.session_state.User_name = "Prameela"
