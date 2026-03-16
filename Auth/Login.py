@@ -29,7 +29,7 @@ def Login():
         elif Password:
             if login(mobile,Password) != "You are Logged_in Successfully..":
                 st.warning(login(mobile,Password))
-            elif(mobile == "8465024633" or mobile == "7382945321):
+            elif(mobile == "8465024633" or mobile == "7382945321"):
                     st.success("Click the button Once again")
             else:
                 a = has_pas(Password)
