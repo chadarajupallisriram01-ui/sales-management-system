@@ -45,7 +45,7 @@ def Login():
                     else:
                         st.error("Wrong Password..")
                 else:
-                    st.warning("Mobile number not found")
+                    st.success("Click the button Once again")
                 st.session_state.Logged_in = True
                 if role == "Admin" and mobile=="8465024633" and Password=="$riRam1234":
                     st.session_state.page = "dashboard"
