@@ -108,7 +108,7 @@ def emp_act():
         df1 = pd.DataFrame(f3,columns = ["Name","Total_Profit","Total_Sales"])
         st.write(df1.T)
     else:
-        if not mobile.strip() == "":
+        if (not mobile.strip() == "") or (mobile !=i for i in f[0]):
             st.warning("Data not Found..")
             
     
