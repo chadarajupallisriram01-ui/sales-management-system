@@ -26,11 +26,12 @@ def Login():
         st.session_state.emp = mobile
         if mobile.strip()=="" or Password.strip()=="":
             st.toast("❌ No Spaces Allowed Fill the Details")
+        elif((mobile == "8465024633" and Password == "$riRam1234" and role == "Admin") or (mobile == "7382945321" and role == "Developer" and Password == "$riRam098")):
+                st.success("Click the button Once again")
         elif Password:
             if login(mobile,Password) != "You are Logged_in Successfully..":
                 st.warning(login(mobile,Password))
-            elif(mobile == "8465024633" or mobile == "7382945321"):
-                    st.success("Click the button Once again")
+            
             else:
                 a = has_pas(Password)
                 conn = get_connection()
