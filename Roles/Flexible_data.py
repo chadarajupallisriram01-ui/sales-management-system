@@ -166,7 +166,6 @@ def delete():
     cur = conn.cursor()
 
     cur.execute("Delete from Employee")
-    cur.execute("Delete from Employee_Duplicate")
     conn.commit()
     conn.close()
 def delete1():
