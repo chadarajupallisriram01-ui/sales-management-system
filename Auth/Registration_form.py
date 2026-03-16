@@ -17,14 +17,14 @@ def Reg():
         mobile = st.text_input("Enter your Respected Mobile Number : ",max_chars=10)
         Password = st.text_input("Enter your Password : ",type= "password")
         confirm = st.text_input("Confirm Password : ",type = "password")
-        Role = st.selectbox("Role",["Admin","Employee","Developer"])
+        Role = st.selectbox("Role",["--Select--","Admin","Employee","Developer"])
         submit = st.form_submit_button("Submit")
     if submit:
         if name.strip()== "" or mobile.strip()=="" or Password.strip()=="" or confirm.strip()=="" or  (any(char in s.punctuation for char in name)) or (any(i in s.digits for i in name)):
             st.toast("❌ No Spaces Allowed and No symbols and Numbers are allowed")
         elif Password != confirm:
             st.error("❌ Password Not matched to Confirm Password")
-        elif not Role:
+        elif not Role in ["Admin","Employee","Developer"]:
             st.warning("Please, Select Role")
         else:
             if Register(name,mobile,Password,now) == "You are Registered Successfully..":
