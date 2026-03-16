@@ -22,8 +22,8 @@ def Register(n,a,b,now):
         cur = conn.cursor()
         h=has_pas(b)
         cur.execute("""Insert or Ignore into Employee(
-                    Name,mobile,Password,created_at
-                    )values(?,?,?,?)""",(n,a,h,now))
+                    Name,mobile,Password,Role,created_at
+                    )values(?,?,?,?)""",(n,a,h,role,now))
         conn.commit()
         conn.close()
         return "You are Registered Successfully.."
