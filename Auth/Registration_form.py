@@ -28,6 +28,6 @@ def Reg():
             st.warning("Please, Select Role")
         else:
             if Register(name,mobile,Password,now) == "You are Registered Successfully..":
-                st.success(Register(name,mobile,Password,now))
+                st.success(Register(name,mobile,Password,Role,now))
             else:
-                st.warning(Register(name,mobile,Password,now))
+                st.warning(Register(name,mobile,Password,Role,now))
