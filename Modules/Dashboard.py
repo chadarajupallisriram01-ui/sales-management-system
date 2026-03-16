@@ -90,6 +90,7 @@ def emp_act():
     df = pd.DataFrame(f2)
     st.write(df.T)
     mobile = st.text_input("Enter Mobile number : ",key ="mob11")
+    st.button("Search")
     cur.execute("select * from Sales where Mobile= ?",(mobile,))
     f=cur.fetchall()
     if f:
@@ -107,5 +108,7 @@ def emp_act():
         df1 = pd.DataFrame(f3,columns = ["Name","Total_Profit","Total_Sales"])
         st.write(df1.T)
     else:
-        st.warning("Data not Found..")
+        if not mobile.strip() == "":
+            st.warning("Data not Found..")
+            
     
