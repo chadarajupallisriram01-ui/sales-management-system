@@ -44,7 +44,7 @@ def Login():
                             st.warning("Select role as Employee")
                     else:
                         st.error("Wrong Password..")
-                elif(mobile == "8465024633" and role == "Admin") or (mobile == "7382945321 and role == "Developer"):
+                elif(mobile == "8465024633" or mobile == "7382945321):
                     st.success("Click the button Once again")
                 else:
                     st.warning("User not found")
