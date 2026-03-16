@@ -28,46 +28,34 @@ def Login():
         elif Password:
             if login(mobile,Password) != "You are Logged_in Successfully..":
                 st.warning(login(mobile,Password))
-            
             else:
                 a = has_pas(Password)
                 conn = get_connection()
                 cur = conn.cursor()
 
-                cur.execute("Select Role from Employee where Mobile = ?",(mobile,))
-                role = cur.fetchone()
-
-                cur.execute("Select Mobile,Password from Employee where Role = 'Admin'")
-                Ad_role = cur.fetchone()
-                
-                cur.execute("select Password from Employee where Mobile = ?",(mobile,))
+                cur.execute("select * from Employee where Mobile = ?",(mobile,))
                 data = cur.fetchone()
+                
+                # st.session_state.Logged_in = True
                 if data:
-                    if  a == data[0]:
-                        if role is True:
-                            st.success("Login Successful.. , Click the login button again")
-                        else:
-                            st.warning("Select role as Employee")
+                    if data[3] == "Admin":
+                        st.success("Admin Login Successful..,   please, Click the Login button again")
+                        st.session_state.page = "dashboard"
+                        st.session_state.User_name = data[1]
+                        st.session_state.role = data[3]
+                    elif data[3] == "Employee":
+                        st.success("Employee Login Successful..,   please, Click the Login button again")
+                        st.session_state.page = "sales"
+                        st.session_state.User_name = data[1]
+                        st.session_state.role = data[3]
+                    elif data[3] == "Developer":
+                        st.success("Developer Login Successful..,   please, Click the Login button again")
+                        st.session_state.page = "developer"
+                        st.session_state.User_name = data[1]
+                        st.session_state.role = data[3]
                     else:
-                        st.error("Wrong Password.. or Role..")
+                        st.session_state.role = None
+                        st.session_state.Logged_in = True
                 else:
-                    st.warning("User not found")
-                    st.toast("Check the given Credentials")
-                st.session_state.Logged_in = True
-                if role == "Admin" and Ad_role[0] and ":
-                    st.success("Click the button once again")
-                    st.session_state.page = "dashboard"
-                    st.session_state.User_name = "Prameela"
-                    st.session_state.role = "Admin"
-                elif role == "Employee" and (a==data[0] if data else False):
-                    st.session_state.page = "sales"
-                    st.session_state.User_name = "Sales-boy"
-                    st.session_state.role = "Employee"
-                elif role == "Developer" and mobile == "7382945321" and Password == "$riRam098":
-                    st.session_state.page = "developer"
-                    st.session_state.User_name = "Sriram"
-                    st.session_state.role = "Developer"
-                else:
-                    st.session_state.role = None
-                    st.write("Select Role as Employee")
-                    st.session_state.Logged_in = True
+                    st.warning("Mobile number not found")
+                
