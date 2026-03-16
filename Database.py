@@ -17,14 +17,7 @@ def create_tables():
                 Mobile integer primary key,
                 Name text not null,
                 Password text not null,
-                Role text check(Role in(Admin,Employee,Developer)),
-                created_at timestamp
-                )""")
-    # Employee Duplicate
-    cur.execute("""Create Table If not exists Employee_Duplicate(
-                Mobile integer primary key,
-                Name text not null,
-                Password text not null,
+                Role text check(Role in("Admin","Employee","Developer")),
                 created_at timestamp
                 )""")
     # Sales
