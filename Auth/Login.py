@@ -44,6 +44,8 @@ def Login():
                             st.warning("Select role as Employee")
                     else:
                         st.error("Wrong Password..")
+                elif not data:
+                    st.warning("User not found")
                 else:
                     st.success("Click the button Once again")
                 st.session_state.Logged_in = True
