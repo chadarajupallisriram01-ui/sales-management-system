@@ -15,7 +15,7 @@ def Register(n,a,b,now):
         return "Password contains atleast one Lower case character"
     elif not re.search(r"[0-9]",b):
         return "Password contains atleast one number"
-    elif not re.search(r"[~!#$%^&*()?/>.<,=+_]",b):
+    elif not re.search(r"[@~!#$%^&*()?/>.<,=+_]",b):
         return "Password contains atleast one special Chacter(Sybmol)"
     else:
         conn = get_connection()
