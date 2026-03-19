@@ -18,7 +18,7 @@ def Emp_view():
     cur.execute("Select E.Name,count(*) as total_sales from Employee E inner join Sales S on E.Mobile = S.Mobile group by E.Name order by total_sales Desc")
     f3 = cur.fetchall()
     st.subheader("Employees and their Total Sales")
-    st.dataframe(f3)
+    st.dataframe(f3,st.columns=["Employee","Sales"])
     cur.execute("select * from Employee")
     f= cur.fetchall()
     st.subheader("Employee Table View")
